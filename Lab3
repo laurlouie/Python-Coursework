@@ -1,0 +1,94 @@
+Create a FOR loop that prints the numbers 1 through 10.
+for x in range(1, 11):
+    print(x, end=', ')
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
+
+Create a FOR loop that prints the numbers 6 through 20, but only prints every THIRD number.
+for x in range(6, 20, 3):
+    print(x, end=', ')
+6, 9, 12, 15, 18, 
+
+You will be creating a nested loop like we did in class but with a twist. Ultimately, you want 5 sets to print, each one with the output "Set : (set number)" each time a new set is looped into. Then before you print all the numbers in that set, you want to test if the number is divisible by 2. If it is, print a string 5 times that looks like this: "Student (number)". So it would have 5 sets... some of them would have strings printed in them, some would not. The ones that would have strings in them would show output like:
+for num in range (1,6):
+    print(f"Set: {num}")
+    if num % 2 == 0:
+        for num2 in range (1,6):
+            print(f"Student: {num2}")
+Set: 1
+Set: 2
+Student: 1
+Student: 2
+Student: 3
+Student: 4
+Student: 5
+Set: 3
+Set: 4
+Student: 1
+Student: 2
+Student: 3
+Student: 4
+Student: 5
+Set: 5
+
+Use a while loop to print all numbers from 1 to 10 which are divisible by 3. Use a while loop and if statement.
+c = 0
+while c < 10:
+    c += 1
+    if c % 3 == 0:
+        print(c, end= ' ')
+3 6 9 
+
+Create two variables x and y. x holds 2 and y holds 100. Create a loop that goes from 0 to 100. In that loop, decrement y by the value of x/4. Print y (use the end=" " in the print statement to make it so they print side by side instead of under each other). Inside of the first loop, create another loop that will end if x goes above 9. Within that nested loop, increment x by 1. (This one tests your ability to pick the right kind of loop)
+x = 2
+y = 100
+for i in range (0, 100):
+    y -= (x/4)
+    while x < 10:
+        x += 1
+    print(y, end=' ')
+99.5 97.0 94.5 92.0 89.5 87.0 84.5 82.0 79.5 77.0 74.5 72.0 69.5 67.0 64.5 62.0 59.5 57.0 54.5 52.0 49.5 47.0 44.5 42.0 39.5 37.0 34.5 32.0 29.5 27.0 24.5 22.0 19.5 17.0 14.5 12.0 9.5 7.0 4.5 2.0 -0.5 -3.0 -5.5 -8.0 -10.5 -13.0 -15.5 -18.0 -20.5 -23.0 -25.5 -28.0 -30.5 -33.0 -35.5 -38.0 -40.5 -43.0 -45.5 -48.0 -50.5 -53.0 -55.5 -58.0 -60.5 -63.0 -65.5 -68.0 -70.5 -73.0 -75.5 -78.0 -80.5 -83.0 -85.5 -88.0 -90.5 -93.0 -95.5 -98.0 -100.5 -103.0 -105.5 -108.0 -110.5 -113.0 -115.5 -118.0 -120.5 -123.0 -125.5 -128.0 -130.5 -133.0 -135.5 -138.0 -140.5 -143.0 -145.5 -148.0 
+
+Create a function called doCalc and it will receive 3 parameters: num1, num2, and num3. Within the function, add num1 and num2 and then multiply them by num3. Print the answer from within the function. Call doCalc once and pass in the arguments: 10, 12, 40. Your answer should be 880.
+def doCalc(num1, num2, num3):
+        ans = (num1 + num2) * num3
+        print(ans)
+doCalc(10, 12, 40)
+880
+'''
+
+7. 
+Create a function called creditsPerQuarter. It will receive parameters: student, numCreds, numCourses. You will pass in a students name, the number of credits each course they are taking is and the number of courses they are taking. Within the function, you will calculate the total number of credits that student has that quarter. You will RETURN the following string: (student name) is taking (number of courses) courses and each course is (number of credits each course is) for a total of (calculated total credits). For example: If the student is Bob and he is taking 4 courses with 3 credit each it would read exactly:
+"Bob is taking 4 courses and each course is 3 credits for a total of 12."
+
+         You will call creditsPerQuarter three times and pass in these arguments:
+
+   Student Name: Wade, Credit per Course: 3, Number of courses: 4
+   Student Name: Jane, Credit per Course: 3, Number of courses: 5
+   Student Name: Evan, Credit per Course: 5, Number of courses: 3
+         Your output should look like this exactly:
+
+       Wade is taking 4 courses and each course is 3 credits for a total of 12.
+       Jane is taking 5 courses and each course is 3 credits for a total of 15.
+       Evan is taking 3 courses and each course is 5 credits for a total of 15.
+       
+'''
+'\n7. \nCreate a function called creditsPerQuarter. It will receive parameters: student, numCreds, numCourses. You will pass in a students name, the number of credits each course they are taking is and the number of courses they are taking. Within the function, you will calculate the total number of credits that student has that quarter. You will RETURN the following string: (student name) is taking (number of courses) courses and each course is (number of credits each course is) for a total of (calculated total credits). For example: If the student is Bob and he is taking 4 courses with 3 credit each it would read exactly:\n"Bob is taking 4 courses and each course is 3 credits for a total of 12."\n\n         You will call creditsPerQuarter three times and pass in these arguments:\n\n   Student Name: Wade, Credit per Course: 3, Number of courses: 4\n   Student Name: Jane, Credit per Course: 3, Number of courses: 5\n   Student Name: Evan, Credit per Course: 5, Number of courses: 3\n         Your output should look like this exactly:\n\n       Wade is taking 4 courses and each course is 3 credits for a total of 12.\n       Jane is taking 5 courses and each course is 3 credits for a total of 15.\n       Evan is taking 3 courses and each course is 5 credits for a total of 15.\n'
+def creditsPerQuarter(student, numCreds, numCourses):
+    totalCreds = numCreds * numCourses
+    print(f"{student}is taking {numCourses} courses and each course is {numCreds} credits for a total of {totalCreds}.")
+creditsPerQuarter("Wade ", 3, 4)
+creditsPerQuarter("Jane ", 3, 5)
+creditsPerQuarter("Evan ", 5, 3)
+Wade is taking 4 courses and each course is 3 credits for a total of 12.
+Jane is taking 5 courses and each course is 3 credits for a total of 15.
+Evan is taking 3 courses and each course is 5 credits for a total of 15.
+For this one use the random library. First, create a function called getRands that will have a parameter called ceiling. Within that function, create a loop that will loop the 10 times and in each loop, it creates a variable that is an integer between 1 and the number in the variable ceiling. Then test if that integer is less than 3. If it is, print that number. Now call getRands and pass in the argument: 10. You must have this answer in function form to get credit.
+import random
+def getRands(ceiling):
+    for x in range(0,11):
+        c = random.randrange(ceiling)
+        if c < 3:
+            print(c, " ", end=" ")
+    
+getRands(10)
+0   2   2   
