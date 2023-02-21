@@ -1,0 +1,75 @@
+Python Lab 1
+Lauren Louie
+
+1.
+print("My name is Lauren Louie. \nI am a student at Seattle University.")
+My name is Lauren Louie. 
+I am a student at Seattle University.
+
+2.
+print("Programming leads to massive 'intelligence'.")
+Programming leads to massive 'intelligence'.
+
+3.
+breed = "Corgi"
+name = "Jasper"
+print(breed,name)
+
+# This code can be interpreted as showing the breed of the dog and then their name next to it.
+Corgi Jasper
+
+4.
+var1 = 12
+var2 = 200
+ans = (var1 + var2)
+print(ans)
+212
+
+5.
+x = "100"
+y = 100
+z = int(x)
+ans = y + z
+print(ans)
+200
+
+6.
+x = "100"
+y = 100
+z = int(x)
+ans = y + z
+print(str(ans))
+200
+
+7.
+ans = 12 * 5 - 3 / 2
+print(ans)
+
+# This will return a numeric type of answer at the end of the code that could be classified as a float type since there is a decimal point in the answer.
+58.5
+
+8.
+num = 5
+try: 
+    print(num/0)
+except:
+    print("You cannot divide a number by 0")
+
+# A code like this one can be useful to someone because it will allow you to see if what you try fails, the except part can choose to do something different.
+You cannot divide a number by 0
+
+9.
+num = 8
+num *= 5
+print(num)
+40
+
+10.
+num = 12
+num += 1
+num += 3
+ans = num % 12
+print(ans)
+
+# In this code, the modulus operator returns the remainder of a division.
+4
