@@ -1,0 +1,146 @@
+Open the file: DontQuit.txt and then read in the first line and print it.
+with open("Data/DontQuit.txt", "r") as reader:
+    print(reader.readline())
+When things go wrong, as they sometimes will,
+
+Open the file DontQuit.txt and then read in each line and print them. Use a while loop as we did in class.
+with open("Data/DontQuit.txt", "r") as reader:
+    line = reader.readline()
+
+    while line != "":
+        print(line, end="")
+        line = reader.readline()
+When things go wrong, as they sometimes will,
+When the road youre trudging seems all uphill,
+When the funds are low but the debts are high,
+And you want to smile but you have to sigh,
+When care is pressing you down a bit...
+Rest if you must, but don't you quit!
+
+Life is queer with its twists and turns,
+As every one of us sometimes learns,
+And many failures turn about
+When we might have won had we stuck it out.
+Don't give up though the pace seems slow...
+You may succeed with another blow.
+
+Often the struggler has given up
+When he might have captured the victors cup;
+And he learned too late when the night came down,
+How close he was to the golden crown.
+
+Success is failure turned inside out...
+And you can never tell how close you are
+It may be near when it seems so far.
+So stick to the fight when you’re hardest hit
+It’s when things seem worst that you must not quit.
+Do the same thing as #2 except this time use a FOR loop and ONLY print a line if the word "Life" is in it (there should be one line that is printed). You may need to do a bit of googling for this one!
+with open("Data/DontQuit.txt", "r") as reader:
+    for line in reader:
+        if "Life" in line:
+            print(line, end="")
+Life is queer with its twists and turns,
+
+Create a list that has two strings in it: "Please excuse my dear Aunt Sally" and "Roy G. Biv". Create using "with open" a new file called famousSayings.txt and write to it the line: "My very excited mother just served us nine pies.". Now write the items in the list you created. Be careful here. Each saying must be on its own line so you may need to edit the strings a bit? Now print the contents of famousSayings.txt using a FOR loop.
+list = ["Please excuse my dear Aunt Sally.\n", "Roy G. Biv.\n"]
+with open("Data/famousSayings.txt", "w") as writer:
+    writer.writelines("My very excited mother just served us nine pies.\n")
+    writer.writelines(list)
+
+print("Lines from famousSayings.txt are: ")
+print('\n')
+with open("Data/famousSayings.txt", "r") as reader:
+    for line in reader.readlines():
+        print(line)
+Lines from famousSayings.txt are: 
+
+
+My very excited mother just served us nine pies.
+
+Please excuse my dear Aunt Sally.
+
+Roy G. Biv.
+
+Open the file famousSayings.txt and append the line: "Will a jolly man make a jolly visitor?". Now read the contents of the file again using a FOR loop.
+with open("Data/famousSayings.txt", "a+") as writer:
+    writer.write("Will a jolly man make a jolly visitor?")
+with open ("Data/famousSayings.txt", "r") as reader:
+    for line in reader:
+        print(line, end= " ")
+My very excited mother just served us nine pies.
+ Please excuse my dear Aunt Sally.
+ Roy G. Biv.
+ Will a jolly man make a jolly visitor? 
+You will be reading in the data from the file SalesJan2009.csv. When you do, you need to save all the items from the PRICE field into a list called amtCollected. After you get them all in that list, you will need to create a variable called total that holds the sum of all the numbers in the list. Then create a variable called avg that holds the average of the numbers in the list. Now, print the following strings: "Total is 
+(
+t
+o
+t
+a
+l
+)
+"
+a
+n
+d
+"
+A
+v
+e
+r
+a
+g
+e
+p
+r
+i
+c
+e
+i
+s
+(avg)" Be sure to replace the (total) and (avg) with the value in the variables. This one will require some thinking and googling on your part. Be sure to do casting where necessary. You may use DictReader to read the data from the csv file and then put that dictionary data into the intended list.
+import csv 
+
+amtCollected = []
+
+with open("Data/SalesJan2009.csv", "r+") as csv_file:
+    csv_file=csv_file.readlines()
+    csv_file=csv_file[1:]
+
+for line in csv_file:
+    amount=list(line.strip().split(","))[2]
+    amtCollected.append(int(amount))
+    
+total=sum(amtCollected)
+avg=total/len(amtCollected)
+
+print("Total is ${}".format(total))
+print("Average price is ${: .2f}".format(avg))
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/var/folders/hd/pf2zshbx3slc2jq7ybtxntz00000gn/T/ipykernel_12170/2999542145.py in <module>
+      8 
+      9 for line in csv_file:
+---> 10     amount=list(line.strip().split(","))[2]
+     11     amtCollected.append(int(amount))
+     12 
+
+TypeError: 'list' object is not callable
+Now create a new file with open called DogWeights.csv. Now write the data below using dictionaries into the CSV file. Once you are done, read in and print the csv file using a FOR loop. Data: Name = Spot, Weight = 53 Name = Sadie, Weight = 22 Name = Sammie, Weight = 24 Name = Jasper, Weight = 45
+import csv
+
+with open("Data/DogWeights.csv", "r+") as csv_file:
+    fn = ["Name", "Weight"]
+    writer = csv.DictWriter(csv_file, fieldnames=fn)
+    writer.writeheader()
+    
+    reader = csv.DictReader(csv_file)
+    for row in reader:
+        print("Name: "+(row["Name"]),",","Weight: "+(row["Weight"]))
+Name: Spot , Weight: 53
+Name: Sadie , Weight: 22
+Name: Sammie , Weight: 24
+Name: Jasper , Weight: 45
+Name: Name , Weight: Weight
+Name: Name , Weight: Weight
+Name: Name , Weight: Weight
