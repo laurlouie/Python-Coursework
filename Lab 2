@@ -1,0 +1,82 @@
+Create a variable to hold the number (integer) 31. Now print a statement that says: "August has 31 days." using the variable concatenated INTO the print statement.
+num = 31
+print(f"August has {num} days.")
+August has 31 days.
+
+Create variables to hold the strings: "September", "April", "June" and "November. Now create a variable called statement that will hold a strings that says: "Thirty days have September, April, June, and November.". Be sure to concatenate the variables in for the month names. Print the statement variable.
+sep = "September"
+apr = "April"
+jun = "June"
+nov = "November"
+print(f"Thirty days have {sep}, {apr}, {jun}, and {nov}.")
+Thirty days have September, April, June, and November.
+
+Create a variable to hold the string "October". Now write an if/else statement that tests if that variable says "October". If it does, print "31 days". If it does not, print "30 days"
+month = "October"
+if month == "October":
+    print("31 days")
+else:
+    print("30 days")
+31 days
+
+Create a variable to hold the number 70. Now create two if statements: 1st: if the number is divisible by 5 and by 10, then print "Number is divisible by 5 and 10." 2nd: if the number is divisible by 7 or by 2, then print "Number is divisible by 7 or by 2"
+number = 70
+if number %5 == 0 and number %10 == 0:
+    print("Number is divisible by 5 or 10.")
+elif number %7 == 0 or number %2 == 0:
+    print("Number is divisible by 7 or by 2.")
+Number is divisible by 5 or 10.
+
+Receive input from the user by stating "Enter a number: " and save it in a variable. Now create these conditions below. It can only result in one of these conditions being true: If the number is less than 2, print "Less than 2". If the number is 3 or greater than 11, print "3 or greater than 11". If the number if greater than 3 or less than or equal to 10, print "Less than 10". Otherwise, print "Error"
+choice = input("Enter a number: ")
+choice = int(choice)
+if choice < 2:
+    print("Less than 2")
+elif choice == 3 or choice > 11:
+    print("3 or greater than 11")
+elif choice > 3 or choice <= 10:
+    print("Less than 10")
+else:
+    print("Error")
+3 or greater than 11
+
+Receive input from the user by stating "Enter a sentence: " and save it in a variable called sent. Print the input the user gave you in all uppercase using the correct string manipulation function and then concatenate !! after it. Now print the input from the user in all lower using the correct string manipulation function and then concatenate " - all lower" onto it. Finally, print the input the user gave using the correct string manipulation function to capitalize the first letters of each word and concatenate " - Proper" at the end of it. So if the input is "This is it", the output would be: THIS IS IT!! this is it - all lower This Is It - Proper
+sent = input("Enter a sentence: ")
+print((sent).upper() + "!!")
+
+sent = input("Enter a sentence: ")
+print((sent).lower() + " - all lower")
+
+sent = input("Enter a sentence: ")
+print((sent).title() + " - Proper")
+THIS IS IT!!
+this is it - all lower
+This Is It - Proper
+
+Receive two inputs from the user: Ask for the users name and ask for their year of birth. Save them into variables. You can name your variables whatever you want.Now print out the sentence: "(name) is (age) years old." So if they put in Wade and 1979, it would print "Wade is 43 years old". Use the year 2022 to calculate their age.
+name = input("What is your name?")
+birYear = input("What is your birth year?")
+print(f"{name} is {2022-int(birYear)} years old.")
+Lauren is 20 years old.
+
+Receive two inputs from the user: Ask them for a gender and for an age. Save them into variables. Now you will create a nested set of conditions. Use the following information to print out the result: A person is underage if they are under 18. A person is an adult if they are under 67. A person is a senior if they are 67 or older. A person is a male if the gender entered is "male". A person is a female if the gender entered is a "female". There should be two set of conditional statements. The outer one is an if, elif and else. Within the if and elif there should be an if, elif, elif and else. Test for gender first before testing for age. For what is printed in the else statements, use the form: "Error: You have entered a negative number or 0." or "Error: You have entered an invalid gender.". This one causes you to think and create this on your own without being handheld.
+age = input("What is your age?")
+age = int(age)
+if age < 18:
+    print("Underage")
+elif age >= 18 and age <= 67:
+    print("Adult")
+elif age >= 67:
+    print("Senior")
+else:
+    print("Error: You have entered a negative number or 0.")
+
+gender = input("What is your gender?")
+if gender == 'Male':
+    print("Male")
+elif gender == 'Female':
+    print("Female")
+else:
+    print("Error: You have entered an invalid gender.")
+Adult
+Female
