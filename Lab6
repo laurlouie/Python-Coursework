@@ -1,0 +1,159 @@
+import csv
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+pd.set_option('display.float_format', lambda x: '%.2f' % x) # converts all decimals to 3 numbers after decimal place
+
+import warnings
+warnings.filterwarnings("ignore")
+
+%config InlineBackend.print_figure_kwargs={'facecolor' : 'w'} # ensures all visualization backgrounds are white
+Create a numpy multi-dimensional array called planets. There will be 3 arrays in one. All of the elements will be strings. The first nested array will hold the words Mercury, Venus, Mars. The second will hold Jupiter, Saturn, Uranus. The last one will hold the word Pluto. Print the array.
+planets = np.array([
+    ['Mercury', 'Venus', 'Mars'],
+    ['Jupiter', 'Saturn', 'Uranus'],
+    ['Pluto']
+])
+print(planets)
+[list(['Mercury', 'Venus', 'Mars']) list(['Jupiter', 'Saturn', 'Uranus'])
+ list(['Pluto'])]
+Recreate the multidimensional array from #1 (yes, copy and paste it here). Now print out these strings: "Venus is the second planet from the sun." and "Pluto is not a planet." Where the names of the planets are in the strings, you must be the values from the multidimensional array.
+planets = np.array([
+    ['Mercury', 'Venus', 'Mars'],
+    ['Jupiter', 'Saturn', 'Uranus'],
+    ['Pluto']
+])
+
+array = planets
+
+print("{} is the second planet from the sun.".format(array[0][1]))
+print("{} is not a planet.".format(array[2][0]))
+Venus is the second planet from the sun.
+Pluto is not a planet.
+Create a numpy array holding the numbers 10 - 100 going up in increments of 10. (So 10 elements, highest 100, lowest 10, +10 on each one) Now create a slice called sub1 that starts at the 4th element and goes to the 9th and goes up by 2 each time. Now create a slice called sub2 which starts at the 1st element and goes to the 6th and goes up by 2 each time. Now create a variable called product and multiply sub1 and sub2 together and save it in product. Print the variable product. Now print the square root of sub2.
+array = np.arange(10, 100+1, 10)
+sub1 = array[3:8:2]
+sub2 = array[0:6:2]
+product=(sub1*sub2)
+print(product)
+
+sqrt = np.sqrt(sub2)
+print(sqrt)
+[ 400 1800 4000]
+[3.16227766 5.47722558 7.07106781]
+Create a list called classes with the strings in it: Algebra I, Intro to Business, Creative Writing. Now create a list called students with the value 30, 31, 29 in it. Now create a pandas Series out of classes and students, using classes as the index. Save this Series as att. Print att. Add a new element to the Series with a key of Programming and a value of 31. Now print a newline. Finally, print only the elements in the Series where the att is less than 31.
+classes = ['Algebra 1', 'Intro to Business', 'Creative Writing']
+students = [30, 31, 29]
+att = pd.Series(students, index=classes)
+print(att)
+print('\n')
+
+att['Programming'] = 31
+print(att)
+print('\n')
+
+print(att[att < 31])
+Algebra 1            30
+Intro to Business    31
+Creative Writing     29
+dtype: int64
+
+
+Algebra 1            30
+Intro to Business    31
+Creative Writing     29
+Programming          31
+dtype: int64
+
+
+Algebra 1           30
+Creative Writing    29
+dtype: int64
+Create a pandas Dataframe that looks like the image below using Dictionary. Print it so the output looks like: df1.PNG Now you are going print a newline. Now use the functionality of adding columns and rows and altering specific cells to create the Dataframe to look like as below. This should be your output: df2.PNG
+Hint: alter Claude's Test 2 score first. Then add the row for James. Then add the column for Test 4.
+
+data = {'Test 1': [92, 72, 98],
+        'Test 2': [85, 83, 89],
+        'Test 3': [83, 99, 61]}
+
+data = pd.DataFrame(data, index=["Sean", "Claude", "Laura"])
+print(data)
+print("\n")
+
+data.loc["Claude", 'Test 2'] = 81
+
+data.loc["James"] = [72, 83, 99]
+
+data["Test 4"] = [69, 71, 72, 83]
+print(data)
+        Test 1  Test 2  Test 3
+Sean        92      85      83
+Claude      72      83      99
+Laura       98      89      61
+
+
+        Test 1  Test 2  Test 3  Test 4
+Sean        92      85      83      69
+Claude      72      81      99      71
+Laura       98      89      61      72
+James       72      83      99      83
+First you are going to create a dictionary called salesDict using this code:
+salesDict = {'Samsung Galaxy S10': [769.34, 834.23, 900.12, 1021.12], 'iPhone X': [983.11, 881.21, 1210.32, 1100.34], 'Google Pixel 4': [1021.18, 1321.12, 832.14, 992.15]}
+
+Now create a list called dates of four strings which are '01/01/2020', '01/02/2020', '01/03/2020', '01/04/2020'.
+
+Now use the salesDict dictionary and the dates list to create a Dataframe called sales. Print sales. It should look like this: df3.PNG
+
+Now you are going to add 3 new columns to the sales Dataframe called "Mean", "Median" and "St Dev". In the Mean column, you will have the mean values for each date. In the Median column, you will have the median values for each date. In the St Dev column, you will have the Standard Deviation for each date. Now drop the columns with the phone names. Print the final form of the sales Dataframe. Your output should look like this:
+
+salesDict = {'Samsung Galaxy S10': [769.34, 834.23, 900.12, 1021.12],
+             'iPhone X': [983.11, 881.21, 1210.32, 1100.34],
+             'Google Pixel 4': [1021.18, 1321.12, 832.14, 992.15]}
+
+dates = ['01/01/2020', '01/02/2020', '01/03/2020', '01/04/2020']
+
+df = pd.DataFrame(salesDict, index=dates)
+print(df)
+
+print("\n")
+
+df['Mean'] = df[['Samsung Galaxy S10', 'iPhone X', 'Google Pixel 4']].mean(axis=1)
+df['Median'] = df[['Samsung Galaxy S10', 'iPhone X', 'Google Pixel 4']].median(axis=1)
+df['St Dev'] = df[['Samsung Galaxy S10', 'iPhone X', 'Google Pixel 4']].std(axis=1)
+df.drop(['Samsung Galaxy S10', 'iPhone X', 'Google Pixel 4'], axis=1, inplace=True)
+print(df)
+            Samsung Galaxy S10  iPhone X  Google Pixel 4
+01/01/2020              769.34    983.11         1021.18
+01/02/2020              834.23    881.21         1321.12
+01/03/2020              900.12   1210.32          832.14
+01/04/2020             1021.12   1100.34          992.15
+
+
+              Mean  Median  St Dev
+01/01/2020  924.54  983.11  135.75
+01/02/2020 1012.19  881.21  268.57
+01/03/2020  980.86  900.12  201.60
+01/04/2020 1037.87 1021.12   56.01
+Load up the SalesJan2009.csv dataset. Now use either Matplotlib or Seaborn to show mean Price by Payment Type. If you use Seaborn, please add a style. Use a barplot. Seaborn will automatically get the mean of the Price if you use it.
+salesDF = pd.read_csv('SalesJan2009.csv', sep=',')
+
+sns.set(style = "whitegrid")
+plt.figure(figsize = (15,5))
+ax = sns.barplot(salesDF.Payment_Type, salesDF.Price)
+
+Use the SalesJan2009.csv dataframe you created from #7 in order to create a histogram using either Matplotlib or Seaborn of the Price with 5 bins. Have the range by from 0 to 8000.
+salesDF = pd.read_csv('SalesJan2009.csv', sep=',')
+
+plt.figure(figsize = (10,5))
+plt.title("Price Histogram")
+plt.xlabel("Price")
+plt.ylabel("Range")
+plt.hist(salesDF['Price'], 5, range=[0,8000])
+plt.show()
+
+Load up the LoanData.csv file and use it to create a boxplot for the Education and Applicant Income columns.
+loanDF = pd.read_csv("LoanData.csv", sep=',')
+
+plt.figure(figsize=(15, 10))
+ax = sns.boxplot(loanDF.Education, loanDF.ApplicantIncome[0:100])
