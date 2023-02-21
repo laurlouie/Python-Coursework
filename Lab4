@@ -1,0 +1,153 @@
+Create a variable holding the string "Excelsior!" Now print only the "x" and then only print the "!", each on their own line.
+x = "Excelsior!"
+print(x[1])
+print(x[-1])
+x
+!
+
+Create a variable holding the string "Avengers Assemble" Now create a loop that would print each letter on a separate line EXCEPT at the end, just print a "!" (Use the end=" " in the print statement so the words print next to each other, not under each other). The result should be Avengers Assemble! It should look exactly like Avengers Assemble! It should be printed horizontally.
+a = "Avengers Assemble"
+for x in a:
+    print(x, end="")
+print("!")
+Avengers Assemble!
+
+Create a variable called school to hold the string "Hogwarts". Create two more variables, the first (call it first) and it will slice out the "Hog" and the other (call it second) will slice out the "warts" from the first variable. (Do not just save the strings "Hog and "warts" into these two variables!) Now print first and second and then print the last letter of school.
+school = "Hogwarts"
+first = school[0:3]
+second = school[3:]
+print(first)
+print(second)
+print(school[-1])
+Hog
+warts
+s
+
+Create a list that holds the strings: Washington, Oregon, California, Nevada in it. Change the last list element to "Idaho". Now print that list. Now print the length of that list.
+states = ["Washington", "Oregon", "California", "Nevada"]
+states[-1] = "Idaho"
+print(states)
+print(len(states))
+['Washington', 'Oregon', 'California', 'Idaho']
+4
+
+5 Create a list called chars and save these strings in: Leslie, Tom, Ron. Now use a FOR loop to print each item as a concatenation of the string: " is a character on Parks and Rec." So the output will be:
+
+chars = ["Leslie", "Tom", "Ron"]
+
+for c in range (0, len(chars)):
+    print(f"{chars[c]} is a character on Parks and Rec.")
+Leslie is a character on Parks and Rec.
+Tom is a character on Parks and Rec.
+Ron is a character on Parks and Rec.
+
+Create a list that holds 10 random numbers in a range of 1 to 10. Now use a while loop to only print the values in the list that are divisible by 3.
+import random
+num = [random.randint(1,10) for x in range (0, 10)]
+i = 0
+while i < len(num):
+    if num [i] % 3 == 0:
+        print(num [i])
+    i += 1
+6
+3
+
+Create a function called holList with the parameters: list1, list2. Inside the function you will concatenate the lists passed into a variable called holidays. Now use a FOR loop to append to a new list called newHolidays ALL items in the list EXCEPT "Black Friday". (Because it isn't a real holiday.) Outside of the function, create two lists. One holds: New Years Day, Easter, Fourth of July as three strings. The second one holds: Halloween, Thanksgiving, Black Friday, Christmas as four strings. Now pass those two lists into a function call for holList. Optional: Print newHolidays inside the function.
+def holList(list1, list2):
+    holidays = []
+    holidays += list1
+    holidays += list2
+    newHolidays = []
+    for i in holidays:
+        if (i != "Black Friday") :
+            newHolidays.append(i)
+    return (newHolidays)
+
+list1 = ["New Years Day", "Easter", "Fourth of July"]
+list2 = ["Halloween", "Thanksgiving", "Black Friday", "Christmas"]
+
+print(holList(list1, list2))
+['New Years Day', 'Easter', 'Fourth of July', 'Halloween', 'Thanksgiving', 'Christmas']
+
+Create a list called cities that holds: New York, Los Angeles as two strings. Append the string Miami onto it at the end. Now append the string Houston to the end of it. Insert the string "Seattle" into the front of the list. Now insert the string "Boise" into the third place in the list. Now delete the first item from the list. Print the list. The output should be: ['New York', 'Boise', 'Los Angeles', 'Miami', 'Houston']
+cities = ["New York", "Los Angeles"]
+str1 = "Seattle"
+str2 = "Boise"
+cities.append("Miami")
+cities.append("Houston")
+cities.insert(0, str1)
+cities.insert(2, str2)
+cities.remove("Seattle")
+print(cities)
+['New York', 'Boise', 'Los Angeles', 'Miami', 'Houston']
+
+Create a nested list called months. It will be a list with 6 lists within it. In each nested list will be the name of a month as a string and then the number of days it has. Create this using the first 6 months. Now use a loop with range and len function to print the following string format on each iteration: "January has 31 days" .... (month name) has (month days) days.
+months = []
+months.append(['January', '31']);
+months.append(['February', '28']);
+months.append(['March', '31']);
+months.append(['April', '30']);
+months.append(['May', '31']);
+months.append(['June', '30']);
+
+for i in range (0, len(months)):
+    print(months[i][0] + " has " + months[i][1] + " days.")
+January has 31 days.
+February has 28 days.
+March has 31 days.
+April has 30 days.
+May has 31 days.
+June has 30 days.
+
+Create a dictionary called dog that hold the data below. Print it. Then print the value of the Breed key. Then use the values in the dictionary to print out the string: "The Corgi is expected to live about 13 years."
+Data: Breed = Corgi Age Exp. = 13 Type = Cattle herding
+
+dog = {"Breed": "Corgi", "Age Exp.": 13, "Type": "Cattle hering"}
+print(dog)
+
+breed = dog["Breed"]
+print(breed)
+
+print(f"The" + (" Corgi") + " is expected to live about " + str(13) + " years.")
+{'Breed': 'Corgi', 'Age Exp.': 13, 'Type': 'Cattle hering'}
+Corgi
+The Corgi is expected to live about 13 years.
+
+Create a dictionary called scores that uses the data below. Data: Jeff = 90 Chris = 59 Hannah = 88 Michelle = 99 Now create two functions: addChangeScore with parameters: name and score. addChangeScore will add a person to the scores dictionary using the name as the key and the score as the value. delScore with parameter: name. delScore will delete a person from the scores dictionary using the name as the key. Use the function to add this new entry Joel = 78. Now change Jeff's score to 79. Now delete Hannah's entry. Be sure to use the functions to to do those operations. Finally, print the dictionary using a FOR loop. Just print the key and then the value.
+scores = {"Jeff": 90, "Chris": 59, "Hannah": 88, "Michelle": 99}
+def addChangeScore(name, score):
+    scores[name] = score
+def delScore(name): 
+    del scores[name]
+    
+addChangeScore("Joel", 78)
+addChangeScore("Jeff", 79)
+delScore("Hannah")
+
+for k, v in scores.items():
+    print(k, v)
+Jeff 79
+Chris 59
+Michelle 99
+Joel 78
+
+Create a list called names with the names in it: Jasper, Sam, Meredith, Chris. Now create a list called ages with the numbers in it: 23, 28, 20, 30. Create an empty dictionary (call it whatever you want). Now create a FOR loop that will take the data in the two lists and create a dictionary out of them with the names being the keys and the ages being the values. This can be done in multiple ways. Print the new dictionary. (Looking on the internet for options will help with this one as well, possibly)
+names = ["Jasper", "Sam", "Meredith", "Chris"]
+ages = [23, 28, 20, 30]
+people = {}
+for i in range (len(names)):
+    people[names[i]] = ages [i]
+print(people)
+{'Jasper': 23, 'Sam': 28, 'Meredith': 20, 'Chris': 30}
+Use the scores dictionary from #11 (yes, you must copy and paste it here again). Create a FOR loop that loops through the dictionary. If a value is > 60, print the string "(name) passed the test.". If it is not, print "(name) did not pass the test."
+scores = {"Jeff": 90, "Chris": 59, "Hannah": 88, "Michelle": 99}
+
+for k, v in scores.items():
+    if v > 60:
+        print(k, 'passed the test.')
+    else:
+        print(k, 'did not pass the test.')
+Jeff passed the test.
+Chris did not pass the test.
+Hannah passed the test.
+Michelle passed the test.
